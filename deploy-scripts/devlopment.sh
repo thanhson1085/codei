@@ -3,6 +3,7 @@
 echo 'Starting...'
 expected_args=3
 e_badargs=65
+home_dir=$PWD/../
  
 if [ $# -ne $expected_args ]
 then
@@ -12,14 +13,19 @@ fi
 
 chown -R www-data:www-data ../application/cache
 chown -R www-data:www-data ../application/logs
-cd ../application/config/
+
+cd $home_dir
+echo "Running update source code ..."
+git pull origin master
+
+cd application/config/
 for config_file in *.dist
 do
 	cp $config_file ${config_file%.*}
 done
 
 
-cd ../../
+cd $home_dir
 database_name=${PWD##*/}
 
 cd database-schema
