@@ -13,3 +13,9 @@
 * html5.js
 * jquery.maskedinput-1.3.js
 * bootstrap.min.js
+
+
+### Using Shell Script 
+* Auto update source code
+* Auto rollback as needed
+
