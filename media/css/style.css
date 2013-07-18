@@ -1,0 +1,33 @@
+/**
+ * Fri Mar 29, 2013 10:38:57 added by Thanh Son 
+ * Email: thanhson1085@gmail.com 
+ */
+.mobile{
+	display: none !important;
+}
+.desktop{
+	display: block;
+}
+.control-group .text-error{
+	display: none;
+}
+.help-block.text-error{
+	color: red;
+}
+.control-group.form-error.control-blank .text-error.text-blank{
+	display: block;
+}
+.control-group.form-error.control-invalid .text-error.text-invalid{
+	display: block;
+}
+select.form-error, .form-error input,.form-error textarea, .form-error select, .form-error label.checkbox{
+	border: solid 1px red;
+}
+@media (max-width: 767px){
+	.desktop{
+		display: none;
+	}
+	.mobile{
+		display: block !important;
+	}
+}
