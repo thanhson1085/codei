@@ -17,7 +17,7 @@ chown -R www-data:www-data ../application/logs
 
 cd $home_dir
 echo "Running update source code from DEV branch..."
-git pull origin master
+git pull origin dev
 
 cd application/config/
 for config_file in *.development

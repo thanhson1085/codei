@@ -17,4 +17,4 @@ do
 	echo "Rollback database $database_name..."
 	mysql -u$1 -p$2 $database_name < $backup_file
 done
-echo "DONE"
+echo "DONE!!!"
