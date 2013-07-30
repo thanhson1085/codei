@@ -12,8 +12,8 @@ then
 	exit $e_badargs
 fi
 
-chown -R www-data:www-data ../application/cache
-chown -R www-data:www-data ../application/logs
+chmod -R ../application/cache
+chmod -R ../application/logs
 
 cd $home_dir
 echo "Running update source code from DEV branch..."
