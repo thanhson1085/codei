@@ -4,6 +4,7 @@ echo 'Starting...'
 expected_args=3
 e_badargs=65
 home_dir=$PWD/../
+current_time=$(date "+%Y.%m.%d-%H.%M.%S")
  
 if [ $# -ne $expected_args ]
 then
@@ -28,12 +29,14 @@ done
 cd $home_dir
 database_name=${PWD##*/}
 
+mysql -u$2 -p$3 -e "CREATE DATABASE IF NOT EXISTS $database_name"
+echo "Backup Database..."
+mysqldump -u$2 -p$3 $database_name > $home_dir/database-backups/$current_time.sql
 cd database-schema
 if [ -d $1 ]
 then
 	cd $1
 	echo "Running SQL Script..."
-	mysql -u$2 -p$3 -e "CREATE DATABASE IF NOT EXISTS $database_name"
 	for schema_file in *.sql
 	do
 		mysql -u$2 -p$3 $database_name < ${PWD}/$schema_file
